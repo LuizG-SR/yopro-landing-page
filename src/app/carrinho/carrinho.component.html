@@ -1,0 +1,53 @@
+<div class="carrinho-container">
+  <h2>Seu Carrinho</h2>
+
+  <ul>
+    <li
+      *ngFor="let item of carrinhoService.getCarrinhoDetalhado(); let i = index"
+    >
+      <img
+        [src]="item.produto?.imagem"
+        alt="{{ item.produto?.nome }}"
+        class="imagem-produto"
+      />
+      <div class="info-produto">
+        <h3>{{ item.produto?.nome }}</h3>
+        <p>R$ {{ item.produto?.preco }}</p>
+        <div class="quantidade">
+          <button (click)="diminuirQuantidade(i)">➖</button>
+          <span>{{ item.quantidade }}</span>
+          <button (click)="aumentarQuantidade(i)">➕</button>
+        </div>
+      </div>
+      <button class="remover" (click)="removerProduto(i)">❌</button>
+    </li>
+  </ul>
+
+  <p><strong>Total:</strong> R$ {{ carrinhoService.calcularTotal() }}</p>
+
+  <div class="button-group">
+    <button (click)="limparCarrinho()" class="limpar-carrinho">
+      Esvaziar Carrinho
+    </button>
+    <button (click)="abrirModalPagamento()" class="finaliza-compra">
+      Finalizar Compra
+    </button>
+  </div>
+
+  <ng-template #carrinhoVazio>
+    <p class="carrinho-vazio">Seu carrinho está vazio. Adicione produtos!</p>
+  </ng-template>
+
+  <!-- Modal PIX -->
+  <div id="pixModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="fecharModalPagamento()">&times;</span>
+      <h2>Pagamento via Pix</h2>
+
+      <qrcode [qrdata]="qrCodePix" [width]="200"></qrcode>
+      <button (click)="copiarPix()">Copiar Código Pix</button>
+
+      <p>Escaneie o QR Code para realizar o pagamento.</p>
+    </div>
+  </div>
+</div>

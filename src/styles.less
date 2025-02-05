@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.less - Paleta de Cores Inspirada no YoPro */
+@cor-principal: #101820; // Preto profundo
+@cor-secundaria: #f2a900; // Amarelo vibrante
+@cor-fundo: #1c1c1c; // Cinza escuro
+@cor-branco: #ffffff;
+@cor-texto: #d9d9d9;
+@borda-radius: 10px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Botões e Interações */
+button {
+  background-color: @cor-secundaria;
+  color: @cor-principal;
+  padding: 10px 20px;
+  border: none;
+  border-radius: @borda-radius;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darken(@cor-secundaria, 10%);
+  }
+}
+
+/* Fundo e Estrutura */
+body {
+  background-color: @cor-fundo;
+  color: @cor-texto;
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+}
+
+/* Estilo de Containers */
+.container {
+  margin: auto;
+}
+.slick-dots {
+  display: none !important;
+}
+.slick-next,
+.slick-arrow {
+  display: none !important;
+}

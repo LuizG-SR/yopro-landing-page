@@ -1,0 +1,53 @@
+<!-- home.component.html -->
+<div class="home-container">
+  <section class="sobre-yopro">
+    <div class="container">
+      <h2>Sobre a YoPro</h2>
+      <p>
+        A YoPro é uma marca referência em <b>proteína de alta qualidade</b>,
+        ideal para quem busca uma alimentação equilibrada e um estilo de vida
+        saudável. Nossos produtos são <b>ricos em proteína</b>, sem adição de
+        açúcar e com ingredientes de alta qualidade.
+      </p>
+      <div class="beneficios">
+        <div class="beneficio">
+          <object data="assets/img/proteina.svg" type="image/svg+xml"></object>
+          <p>+25g de Proteína</p>
+        </div>
+        <div class="beneficio">
+          <object data="assets/img/acucar.svg" type="image/svg+xml"></object>
+          <p>Sem Açúcar Adicionado</p>
+        </div>
+        <div class="beneficio">
+          <object data="assets/img/energia.svg" type="image/svg+xml"></object>
+          <p>Mais Energia no Dia a Dia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img src="{{ slide.img }}" alt="Slide image" style="width: 100%" />
+    </div>
+  </ngx-slick-carousel>
+
+  <section class="nossos-produtos">
+    <div class="container">
+      <h2>Nossos Produtos</h2>
+      <hr class="divisor" />
+
+      <div class="grid-produtos">
+        <div class="produto" *ngFor="let produto of produtos">
+          <img [src]="produto.imagem" alt="{{ produto.nome }}" />
+          <h3>{{ produto.nome }}</h3>
+          <p>
+            <strong>R$ {{ produto.preco }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <img class="divisor" src="./assets/img/Divider.svg" alt="" width="100%" />
+</div>

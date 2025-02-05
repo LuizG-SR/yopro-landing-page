@@ -1,0 +1,16 @@
+<header class="header">
+  <img class="logo" src="./assets/img/logo.png" alt="" />
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/produtos">Produtos</a></li>
+      <li>
+        <a routerLink="/carrinho">
+          Carrinho ({{ carrinhoService.getQuantidadeItens() }})
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<img class="divisor" src="./assets/img/Divider.svg" alt="" width="100%" />

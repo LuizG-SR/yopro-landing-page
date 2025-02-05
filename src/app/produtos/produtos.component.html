@@ -1,0 +1,33 @@
+<!-- produtos.component.html -->
+<div class="produtos-container">
+  <div class="header">
+    <div class="title">
+      <h2>Lista de Produtos</h2>
+      <hr class="divisor" />
+    </div>
+  </div>
+
+  <!-- Barra de Pesquisa -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="termoBusca"
+      placeholder="Buscar produtos..."
+    />
+    <button>🔍</button>
+  </div>
+
+  <!-- Grid de Produtos -->
+  <div class="grid-produtos">
+    <div class="produto" *ngFor="let produto of getProdutosFiltrados()">
+      <img [src]="produto.imagem" alt="{{ produto.nome }}" />
+      <h3>{{ produto.nome }}</h3>
+      <p>
+        <strong>R$ {{ produto.preco }}</strong>
+      </p>
+      <button (click)="adicionarAoCarrinho(produto)">
+        Adicionar ao Carrinho
+      </button>
+    </div>
+  </div>
+</div>

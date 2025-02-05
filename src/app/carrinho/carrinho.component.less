@@ -1,0 +1,104 @@
+@cor-principal: #101820; // Preto profundo
+@cor-secundaria: #f2a900; // Amarelo vibrante
+@cor-branco: #ffffff;
+@cor-cinza: #d9d9d9;
+@borda-radius: 10px;
+
+.carrinho-container {
+  text-align: center;
+  padding: 20px;
+
+  .lista-carrinho {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: @cor-branco;
+      padding: 15px;
+      border-radius: @borda-radius;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+      .imagem-produto {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+      }
+
+      .info-produto {
+        flex: 1;
+        text-align: left;
+        padding: 0 10px;
+
+        h3 {
+          font-size: 16px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 14px;
+          color: #555;
+        }
+
+        .quantidade {
+          display: flex;
+          align-items: center;
+          margin-top: 5px;
+
+          button {
+            background-color: @cor-secundaria;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+          }
+
+          span {
+            margin: 0 10px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .remover {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .carrinho-vazio {
+    font-size: 18px;
+    color: @cor-cinza;
+    margin-top: 20px;
+  }
+
+  .button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    button {
+      background-color: @cor-secundaria;
+      color: @cor-principal;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: darken(@cor-secundaria, 10%);
+    }
+  }
+}
