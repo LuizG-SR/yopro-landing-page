@@ -5,6 +5,7 @@ import { CarrinhoService } from '../services/carrinho.service';
   selector: 'app-carrinho',
   templateUrl: './carrinho.component.html',
   styleUrls: ['./carrinho.component.less'],
+  standalone: false,
 })
 export class CarrinhoComponent {
   qrCodePix: string = '';

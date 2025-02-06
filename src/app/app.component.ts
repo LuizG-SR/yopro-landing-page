@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.less',
+  standalone: false,
 })
 export class AppComponent {
   title = 'yopro-landing-page';

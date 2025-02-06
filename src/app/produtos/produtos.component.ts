@@ -7,6 +7,7 @@ import { PRODUTOS } from '../../data/produto';
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
   styleUrls: ['./produtos.component.less'],
+  standalone: false,
 })
 export class ProdutosComponent {
   produtos = PRODUTOS;

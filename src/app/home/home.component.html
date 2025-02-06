@@ -1,5 +1,5 @@
-<!-- home.component.html -->
 <div class="home-container">
+  <!-- Seção Sobre a YoPro -->
   <section class="sobre-yopro">
     <div class="container">
       <h2>Sobre a YoPro</h2>
@@ -10,44 +10,82 @@
         açúcar e com ingredientes de alta qualidade.
       </p>
       <div class="beneficios">
-        <div class="beneficio">
-          <object data="assets/img/proteina.svg" type="image/svg+xml"></object>
-          <p>+25g de Proteína</p>
-        </div>
-        <div class="beneficio">
-          <object data="assets/img/acucar.svg" type="image/svg+xml"></object>
-          <p>Sem Açúcar Adicionado</p>
-        </div>
-        <div class="beneficio">
-          <object data="assets/img/energia.svg" type="image/svg+xml"></object>
-          <p>Mais Energia no Dia a Dia</p>
-        </div>
+        <mat-card class="beneficio">
+          <mat-card-content>
+            <img
+              src="./assets/img/proteina.svg"
+              alt="Proteína"
+              class="beneficio-icon"
+            />
+            <p>+25g de Proteína</p>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="beneficio">
+          <mat-card-content>
+            <img
+              src="./assets/img/acucar.svg"
+              alt="Sem açúcar"
+              class="beneficio-icon"
+            />
+            <p>Sem Açúcar Adicionado</p>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="beneficio">
+          <mat-card-content>
+            <img
+              src="./assets/img/energia.svg"
+              alt="Energia"
+              class="beneficio-icon"
+            />
+            <p>Mais Energia no Dia a Dia</p>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
   </section>
 
-  <ngx-slick-carousel class="carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <img src="{{ slide.img }}" alt="Slide image" style="width: 100%" />
+  <mat-card class="carousel-container">
+    <div class="carousel">
+      <img
+        [src]="slides[currentSlide].img"
+        alt="Slide image"
+        class="carousel-img"
+      />
     </div>
-  </ngx-slick-carousel>
+    <!-- <mat-card-actions class="center-buttons">
+      <button mat-icon-button (click)="prevSlide()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button (click)="nextSlide()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </mat-card-actions> -->
+  </mat-card>
 
+  <!-- Seção de Produtos -->
   <section class="nossos-produtos">
     <div class="container">
       <h2>Nossos Produtos</h2>
       <hr class="divisor" />
 
       <div class="grid-produtos">
-        <div class="produto" *ngFor="let produto of produtos">
-          <img [src]="produto.imagem" alt="{{ produto.nome }}" />
-          <h3>{{ produto.nome }}</h3>
-          <p>
-            <strong>R$ {{ produto.preco }}</strong>
-          </p>
-        </div>
+        <mat-card class="produto" *ngFor="let produto of produtos">
+          <mat-card-header>
+            <mat-card-title>{{ produto.nome }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="produto.imagem" alt="{{ produto.nome }}" />
+          <mat-card-content>
+            <p>
+              <strong>R$ {{ produto.preco }}</strong>
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary">Adicionar ao Carrinho</button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </section>
 
-  <img class="divisor" src="./assets/img/Divider.svg" alt="" width="100%" />
+  <mat-divider></mat-divider>
 </div>

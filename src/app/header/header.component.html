@@ -1,16 +1,57 @@
-<header class="header">
-  <img class="logo" src="./assets/img/logo.png" alt="" />
-  <nav>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/produtos">Produtos</a></li>
-      <li>
-        <a routerLink="/carrinho">
-          Carrinho ({{ carrinhoService.getQuantidadeItens() }})
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+<mat-toolbar color="primary" class="header">
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="./assets/img/logo.png" alt="YoPRO" />
+  </div>
 
-<img class="divisor" src="./assets/img/Divider.svg" alt="" width="100%" />
+  <!-- Espaço flexível para alinhar corretamente -->
+  <span class="spacer"></span>
+  <!-- Ícone do menu hambúrguer (aparece apenas no mobile) -->
+  <button mat-icon-button class="mobile-menu-btn" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Menu Desktop -->
+  <nav class="desktop-menu">
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/produtos">Produtos</button>
+    <button mat-button routerLink="/carrinho">
+      <mat-icon>shopping_cart</mat-icon> Carrinho ({{
+        carrinhoService.getQuantidadeItens()
+      }})
+    </button>
+  </nav>
+</mat-toolbar>
+
+<!-- Menu Mobile -->
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    [fixedInViewport]="true"
+    [disableClose]="false"
+  >
+    <mat-nav-list>
+      <!-- Botão para fechar o menu -->
+      <div class="line-btn-close">
+        <button
+          mat-icon-button
+          (click)="sidenav.close()"
+          class="close-menu-btn"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+      <a mat-list-item routerLink="/produtos" (click)="sidenav.close()"
+        >Produtos</a
+      >
+      <a mat-list-item routerLink="/carrinho" (click)="sidenav.close()">
+        <mat-icon>shopping_cart</mat-icon> Carrinho ({{
+          carrinhoService.getQuantidadeItens()
+        }})
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
