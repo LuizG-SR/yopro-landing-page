@@ -65,7 +65,7 @@
   <!-- Seção de Produtos -->
   <section class="nossos-produtos">
     <div class="container">
-      <h2>Nossos Produtos</h2>
+      <h2>Produtos favoritos</h2>
       <hr class="divisor" />
 
       <div class="grid-produtos">
@@ -73,19 +73,40 @@
           <mat-card-header>
             <mat-card-title>{{ produto.nome }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image [src]="produto.imagem" alt="{{ produto.nome }}" />
+
+          <mat-tab-group *ngIf="produto.imagens.length > 1">
+            <mat-tab *ngFor="let imagem of produto.imagens">
+              <ng-template mat-tab-label>
+                <img [src]="imagem" class="thumbnail-img" />
+              </ng-template>
+              <img [src]="imagem" class="produto-img" />
+            </mat-tab>
+          </mat-tab-group>
+
+          <!-- Caso tenha apenas uma imagem, exibe diretamente -->
+          <img
+            *ngIf="produto.imagens.length === 1"
+            [src]="produto.imagens[0]"
+            class="produto-img"
+          />
+
           <mat-card-content>
             <p>
               <strong>R$ {{ produto.preco }}</strong>
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button color="primary">Adicionar ao Carrinho</button>
+            <button
+              mat-raised-button
+              color="primary"
+              class="btn-cta"
+              (click)="adicionarAoCarrinho(produto)"
+            >
+              <mat-icon>shopping_cart</mat-icon> Adicionar ao Carrinho
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
   </section>
-
-  <mat-divider></mat-divider>
 </div>

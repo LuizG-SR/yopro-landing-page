@@ -5,6 +5,7 @@ import Swiper from 'swiper';
 import Autoplay from 'swiper';
 import Navigation from 'swiper';
 import Pagination from 'swiper';
+import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,9 @@ export class HomeComponent {
 
   currentSlide = 0;
   slideInterval: any; // Variável para armazenar o intervalo
+  constructor(private carrinhoService: CarrinhoService) {
+    this.produtos = PRODUTOS.filter((produto) => produto.favorito); // Filtrando apenas favoritos
+  }
 
   ngOnInit() {
     // Inicia a troca automática de slides a cada 4 segundos
@@ -33,6 +37,11 @@ export class HomeComponent {
   ngOnDestroy() {
     // Limpa o intervalo quando o componente for destruído (evita bugs)
     clearInterval(this.slideInterval);
+  }
+
+  adicionarAoCarrinho(produto: any) {
+    this.carrinhoService.adicionarProduto(produto.id);
+    alert(`${produto.nome} foi adicionado ao carrinho!`);
   }
 
   nextSlide() {

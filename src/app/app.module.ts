@@ -28,6 +28,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
+    MatTabsModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
