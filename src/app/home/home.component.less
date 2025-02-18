@@ -155,14 +155,36 @@ mat-tab-group {
 /* Responsividade */
 @media screen and (max-width: 768px) {
   .beneficios {
-    flex-direction: column;
+    .mat-mdc-card-content {
+      font-size: 0.8em;
+    }
   }
 
-  .grid-produtos {
-    grid-template-columns: 1fr;
-  }
+  // .grid-produtos {
+  //   max-width: 95% !important;
+  //   grid-template-columns: 1fr 1fr !important;
+  //   .mat-mdc-card-title {
+  //     font-size: 1em;
+  //     line-height: normal;
+  //   }
+
+  //   .mat-mdc-card-actions {
+  //     padding: 0;
+  //     ::ng-deep .mdc-button__label {
+  //       font-size: 0.8em !important;
+  //     }
+  //   }
+
+  //   img {
+  //     height: 200px !important;
+  //   }
+  // }
 
   .carousel-container {
     max-width: 100%;
+  }
+
+  .sobre-yopro {
+    padding: 10px 0;
   }
 }

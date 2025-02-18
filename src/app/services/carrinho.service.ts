@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItemCarrinho } from '../models/item-carrinho.model';
 import { Produto } from '../models/produto.model';
 import { PRODUTOS } from '../../data/produto';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class CarrinhoService {
   private carrinho: ItemCarrinho[] = [];
   private chavePix = 'luizgsribeiro@gmail.com'; // Substitua por uma chave real
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
     this.carregarCarrinho();
   }
 
@@ -35,6 +36,16 @@ export class CarrinhoService {
     }
 
     this.salvarCarrinho();
+    this.mostrarToaster(`${produto.nome} adicionado ao carrinho!`);
+  }
+
+  private mostrarToaster(mensagem: string) {
+    this.snackBar.open(mensagem, 'Fechar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: ['snackbar-success'], // Classe para estilizar
+    });
   }
 
   /** Remove um item do carrinho */

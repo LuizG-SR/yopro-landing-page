@@ -41,7 +41,6 @@ export class HomeComponent {
 
   adicionarAoCarrinho(produto: any) {
     this.carrinhoService.adicionarProduto(produto.id);
-    alert(`${produto.nome} foi adicionado ao carrinho!`);
   }
 
   nextSlide() {

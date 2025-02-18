@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CarrinhoService } from '../services/carrinho.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-carrinho',
@@ -10,7 +11,10 @@ import { CarrinhoService } from '../services/carrinho.service';
 export class CarrinhoComponent {
   qrCodePix: string = '';
 
-  constructor(public carrinhoService: CarrinhoService) {}
+  constructor(
+    public carrinhoService: CarrinhoService,
+    private snackBar: MatSnackBar
+  ) {}
 
   abrirModalPagamento() {
     this.qrCodePix = this.carrinhoService.gerarPayloadPix();
@@ -41,6 +45,15 @@ export class CarrinhoComponent {
 
   copiarPix() {
     navigator.clipboard.writeText(this.qrCodePix);
-    alert('Código Pix copiado!');
+    this.mostrarToaster('Código Pix copiado!');
+  }
+
+  private mostrarToaster(mensagem: string) {
+    this.snackBar.open(mensagem, 'Fechar', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: ['snackbar-success'], // Classe para estilizar
+    });
   }
 }
