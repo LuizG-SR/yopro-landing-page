@@ -22,7 +22,7 @@
         <mat-card-title>{{ produto.nome }}</mat-card-title>
       </mat-card-header>
 
-      <mat-tab-group *ngIf="produto.imagens.length > 1">
+      <mat-tab-group>
         <mat-tab *ngFor="let imagem of produto.imagens">
           <ng-template mat-tab-label>
             <img [src]="imagem" class="thumbnail-img" />
@@ -31,16 +31,9 @@
         </mat-tab>
       </mat-tab-group>
 
-      <!-- Caso tenha apenas uma imagem, exibe diretamente -->
-      <img
-        *ngIf="produto.imagens.length === 1"
-        [src]="produto.imagens[0]"
-        class="produto-img"
-      />
-
       <mat-card-content>
         <p>
-          <strong>R$ {{ produto.preco }}</strong>
+          <strong>R$ {{ produto.preco | number : "1.2-2" }}</strong>
         </p>
       </mat-card-content>
       <mat-card-actions>

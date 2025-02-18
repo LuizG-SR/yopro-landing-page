@@ -2,12 +2,11 @@
   <!-- Seção Sobre a YoPro -->
   <section class="sobre-yopro">
     <div class="container">
-      <h2>Sobre a YoPro</h2>
+      <h2>Sobre a FitStore</h2>
       <p>
-        A YoPro é uma marca referência em <b>proteína de alta qualidade</b>,
-        ideal para quem busca uma alimentação equilibrada e um estilo de vida
-        saudável. Nossos produtos são <b>ricos em proteína</b>, sem adição de
-        açúcar e com ingredientes de alta qualidade.
+        A <b>FitStore</b> é sua loja de referência para um
+        <b>estilo de vida saudável</b>. Encontre os melhores suplementos, snacks
+        proteicos e acessórios fitness.
       </p>
       <div class="beneficios">
         <mat-card class="beneficio">
@@ -17,7 +16,7 @@
               alt="Proteína"
               class="beneficio-icon"
             />
-            <p>+25g de Proteína</p>
+            <p>Produtos Naturais</p>
           </mat-card-content>
         </mat-card>
         <mat-card class="beneficio">
@@ -27,7 +26,7 @@
               alt="Sem açúcar"
               class="beneficio-icon"
             />
-            <p>Sem Açúcar Adicionado</p>
+            <p>Alta Qualidade</p>
           </mat-card-content>
         </mat-card>
         <mat-card class="beneficio">
@@ -37,8 +36,8 @@
               alt="Energia"
               class="beneficio-icon"
             />
-            <p>Mais Energia no Dia a Dia</p>
           </mat-card-content>
+          <p>Mais Energia no Treino</p>
         </mat-card>
       </div>
     </div>
@@ -92,7 +91,7 @@
 
           <mat-card-content>
             <p>
-              <strong>R$ {{ produto.preco }}</strong>
+              <strong>R$ {{ produto.preco | number : "1.2-2" }}</strong>
             </p>
           </mat-card-content>
           <mat-card-actions>
