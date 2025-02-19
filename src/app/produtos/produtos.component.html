@@ -18,16 +18,20 @@
   <!-- Grid de Produtos -->
   <div class="grid-produtos">
     <mat-card class="produto" *ngFor="let produto of getProdutosFiltrados()">
-      <mat-card-header>
-        <mat-card-title>{{ produto.nome }}</mat-card-title>
-      </mat-card-header>
+      <a [routerLink]="['/produto', produto.id]">
+        <mat-card-header>
+          <mat-card-title>{{ produto.nome }}</mat-card-title>
+        </mat-card-header>
+      </a>
 
       <mat-tab-group>
         <mat-tab *ngFor="let imagem of produto.imagens">
           <ng-template mat-tab-label>
             <img [src]="imagem" class="thumbnail-img" />
           </ng-template>
-          <img [src]="imagem" class="produto-img" />
+          <a [routerLink]="['/produto', produto.id]">
+            <img [src]="imagem" class="produto-img"
+          /></a>
         </mat-tab>
       </mat-tab-group>
 

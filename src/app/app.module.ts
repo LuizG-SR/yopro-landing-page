@@ -29,6 +29,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProdutoDetalheComponent } from './produtos/produto-detalhe/produto-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ProdutosComponent,
     CarrinhoComponent,
     HomeComponent,
+    ProdutoDetalheComponent,
   ],
   imports: [
     BrowserModule,

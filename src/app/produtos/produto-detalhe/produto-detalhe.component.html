@@ -1,0 +1,40 @@
+<div class="produto-detalhe-container" *ngIf="produto">
+  <div class="produto-detalhe">
+    <!-- Galeria de Imagens -->
+    <div class="produto-imagens">
+      <img
+        [src]="imagemSelecionada"
+        alt="{{ produto.nome }}"
+        class="imagem-principal"
+      />
+      <div class="galeria">
+        <img
+          *ngFor="let img of produto.imagens"
+          [src]="img"
+          (click)="selecionarImagem(img)"
+          class="imagem-thumbnail"
+          alt="Imagem do Produto"
+        />
+      </div>
+    </div>
+
+    <!-- Informações do Produto -->
+    <div class="produto-info">
+      <h2>{{ produto.nome }}</h2>
+      <p class="descricao">{{ produto.descricao }}</p>
+      <p class="preco">
+        <strong>R$ {{ produto.preco.toFixed(2) }}</strong>
+      </p>
+
+      <div class="quantidade">
+        <button (click)="diminuirQuantidade()">➖</button>
+        <span>{{ quantidade }}</span>
+        <button (click)="aumentarQuantidade()">➕</button>
+      </div>
+
+      <button class="botao-adicionar" (click)="adicionarAoCarrinho(produto)">
+        🛒 Adicionar ao Carrinho
+      </button>
+    </div>
+  </div>
+</div>

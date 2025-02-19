@@ -9,6 +9,10 @@
   color: #fff;
   background: #1c1c1c;
   text-align: center;
+  background-image: url("../../assets/img/man-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .container {
     max-width: 80%;
@@ -97,6 +101,21 @@
       color: #1c1c1c;
       padding: 10px;
       border-radius: 10px;
+
+      a {
+        text-decoration: none;
+        color: #1c1c1c;
+      }
+
+      ::ng-deep .mat-mdc-card-header-text {
+        width: 100%;
+        .mat-mdc-card-title {
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
 
       /* Botões CTA */
       .btn-cta {
